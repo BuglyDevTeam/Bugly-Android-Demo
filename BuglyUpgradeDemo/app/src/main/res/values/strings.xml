@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">BuglyUpgradeDemo</string>
+
+    <string name="strToastYourAreTheLatestVersion">你已经是最新版了</string>
+    <string name="strToastCheckUpgradeError">检查新版本失败，请稍后重试</string>
+    <string name="strToastCheckingUpgrade">正在检查，请稍候...</string>
+    <string name="strNotificationDownloading">正在下载</string>
+    <string name="strNotificationClickToView">点击查看</string>
+    <string name="strNotificationClickToInstall">点击安装</string>
+    <string name="strNotificationClickToRetry">点击重试</string>
+    <string name="strNotificationDownloadSucc">下载完成</string>
+    <string name="strNotificationDownloadError">下载失败</string>
+    <string name="strNotificationHaveNewVersion">有新版本</string>
+    <string name="strNetworkTipsMessage">你已切换到移动网络，是否继续当前下载？</string>
+    <string name="strNetworkTipsTitle">网络提示</string>
+    <string name="strNetworkTipsConfirmBtn">继续下载</string>
+    <string name="strNetworkTipsCancelBtn">取消</string>
+    <string name="strUpgradeDialogVersionLabel">版本</string>
+    <string name="strUpgradeDialogFileSizeLabel">包大小</string>
+    <string name="strUpgradeDialogUpdateTimeLabel">更新时间</string>
+    <string name="strUpgradeDialogFeatureLabel">更新说明</string>
+    <string name="strUpgradeDialogUpgradeBtn">立即更新</string>
+    <string name="strUpgradeDialogInstallBtn">安装</string>
+    <string name="strUpgradeDialogRetryBtn">重试</string>
+    <string name="strUpgradeDialogContinueBtn">继续</string>
+    <string name="strUpgradeDialogCancelBtn">下次再说</string>
+</resources>

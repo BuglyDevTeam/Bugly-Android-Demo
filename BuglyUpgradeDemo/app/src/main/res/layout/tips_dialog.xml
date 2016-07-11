@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6000"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_margin="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!-- 【必设】标题控件tag：beta_title-->
+        <TextView
+            android:tag="beta_title"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:text="title"
+            android:textColor="#273238"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#99273238" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+            <!-- 【必设】提示消息控件tag：beta_tip_message-->
+                <TextView
+                    android:tag="beta_tip_message"
+                    android:padding="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="message"
+                    android:textColor="#273238"
+                    android:textSize="14sp" />
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+            <!-- 【必设】取消按钮tag：beta_cancel_button-->
+            <TextView
+                android:tag="beta_cancel_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="cancel"
+                android:textColor="#757575"
+                android:textSize="16sp" />
+            <!-- 【必设】确认按钮tag：beta_confirm_button-->
+            <TextView
+                android:tag="beta_confirm_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="confirm"
+                android:textColor="#273238"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
