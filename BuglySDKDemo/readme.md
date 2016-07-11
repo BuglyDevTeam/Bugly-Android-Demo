@@ -1,6 +1,6 @@
 ## 项目结构：
 
-BuglySDKDemo
+```BuglySDKDemo
 	- build.gradle（project gradle配置）
         - gradle.properties(配置android.useDeprecatedNdk=true)
 	- app(Android工程）
@@ -9,6 +9,7 @@ BuglySDKDemo
             - MyApplication.java（crash-SDK初始化）
             - AndroidManifest.xml （配置网络权限，SDK必须的配置）
 		  - build.gradle（app gradle 配置了crashreport & ndk 库）
+```		  
 
 注：本demo采用AS Gradle方式快速配置，更多详细的配置，请参考官方文档http://bugly.qq.com/androidfast
 
