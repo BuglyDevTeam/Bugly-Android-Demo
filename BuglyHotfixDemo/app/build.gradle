@@ -7,8 +7,8 @@ dependencies {
     // 多dex配置
     compile "com.android.support:multidex:1.0.1"
     // 集成Bugly热更新aar（灰度时使用方式）
-    compile(name: 'bugly_crashreport_upgrade-2.0.1', ext: 'aar')
-//    compile "com.tencent.bugly:crashreport_upgrade:2.0.1-SNAPSHOT"
+//    compile(name: 'bugly_crashreport_upgrade-1.2.0', ext: 'aar')
+    compile "com.tencent.bugly:crashreport_upgrade:latest.release"
 }
 
 android {
@@ -49,8 +49,8 @@ android {
         applicationId "com.tencent.bugly.hotfix"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 5
-        versionName "6.0.0"
+        versionCode 1
+        versionName "2.0"
 
         // 开启multidex
         multiDexEnabled true
@@ -84,6 +84,20 @@ android {
         }
     }
 
+   /* productFlavors {
+        xiaomi {
+
+        }
+        yyb {
+
+        }
+    }*/
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
 }
 
 def gitSha() {
@@ -112,14 +126,14 @@ ext {
 
     // for normal build
     // old apk file to build patch apk
-    tinkerOldApkPath = "${bakPath}/app-release-1123-11-13-46.apk"
+    tinkerOldApkPath = "${bakPath}/app-release-1129-13-08-35.apk"
     // proguard mapping file to build patch apk
-    tinkerApplyMappingPath = "${bakPath}/app-release-1123-11-13-46-mapping.txt"
+    tinkerApplyMappingPath = "${bakPath}/app-release-1129-13-08-35-mapping.txt"
     // resource R.txt to build patch apk, must input if there is resource changed
-    tinkerApplyResourcePath = "${bakPath}/app-release-1123-11-13-46-R.txt"
+    tinkerApplyResourcePath = "${bakPath}/app-release-1129-13-08-35-R.txt"
 
     // only use for build all flavor, if not, just ignore this field
-    tinkerBuildFlavorDirectory = "${bakPath}/app-release-1123-11-13-46"
+    tinkerBuildFlavorDirectory = "${bakPath}/app-1124-23-03-52"
 }
 
 def getOldApkPath() {
@@ -150,9 +164,9 @@ def getTinkerBuildFlavorDirectory() {
  * 更多Tinker插件详细的配置，参考：https://github.com/Tencent/tinker/wiki
  */
 if (buildWithTinker()) {
+    apply plugin: 'com.tencent.bugly.tinker-support'
     // 依赖tinker插件
     apply plugin: 'com.tencent.tinker.patch'
-    apply plugin: 'com.tencent.bugly.tinker-support'
 
     tinkerSupport {
     }
@@ -169,30 +183,30 @@ if (buildWithTinker()) {
         buildConfig {
             applyMapping = getApplyMappingPath() //  可选，设置mapping文件，建议保持旧apk的proguard混淆方式
             applyResourceMapping = getApplyResourceMappingPath() // 可选，设置R.txt文件，通过旧apk文件保持ResId的分配
-            tinkerId = "555577255dasss4ssa3c10319dddf8219c37aa4" // 必选，默认为null
-//            tinkerId = "a8d7e290b04cc8e11453sssdebcf93347ed2feb8"
+            tinkerId = "aaaaafasdfasdfasdfasdf" // 必选，默认为null
+//            tinkerId = "dsfasdfadfadsssfassssssssdf"
         }
 
         // dex相关配置项
         dex {
             dexMode = "jar" // 可选，默认为jar
-            usePreGeneratedPatchDex = false // 可选，默认为false
+            usePreGeneratedPatchDex = true // 可选，默认为false
             pattern = ["classes*.dex",
                        "assets/secondary-dex-?.jar"]
             // 必选
             loader = ["com.tencent.tinker.loader.*",
                       "com.tencent.bugly.hotfix.SampleApplication",
-                  ]
+            ]
         }
 
         // lib相关的配置项
         lib {
-            pattern = ["lib/armeabi/*.so"]
+            pattern = ["lib/armeabi.so"]
         }
 
         // res相关的配置项
         res {
-            pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
+            pattern = ["res", "assets", "resources.arsc", "AndroidManifest.xml"]
             ignoreChange = ["assets/sample_meta.txt"]
             largeModSize = 100
         }
@@ -211,7 +225,40 @@ if (buildWithTinker()) {
             zipArtifact = "com.tencent.mm:SevenZip:1.1.10" // optional
             //  path = "/usr/local/bin/7za" // optional
         }
+
+        // 如果只用我们提供的插件，可以进行以下配置
+        /* apply plugin: 'com.tencent.bugly.tinker-support'
+
+    tinkerSupport {
+
+        // 开启tinker-support插件，默认值true
+        enable = true
+
+        // 是否编译完成后，归档apk到指定目录，默认值false
+        autoBackupApk = false
+        // 指定归档目录，默认值当前module的子目录tinker
+        // backupApkDir = 'tinker'
+
+        // 是否启用覆盖tinkerPatch配置功能，默认值false
+        // 开启后tinkerPatch配置不生效，即无需添加tinkerPatch
+        overrideTinkerPatchConfiguration = true
+
+        // 编译补丁包时，必需指定基线版本的apk，默认值为空
+        // 如果为空，则表示不是进行补丁包的编译
+        // @{link tinkerPatch.oldApk }
+        baseApk = getOldApkPath()
+
+        // 对应tinker插件applyMapping
+        baseApkProguardMapping = getApplyMappingPath()
+
+        // 对应tinker插件applyResourceMapping
+        baseApkResourceMapping = getApplyResourceMappingPath()
+
+        tinkerId = "aaaaafasdfasdfasdfasdf"
+    }*/
+
     }
+}
 
     List<String> flavors = new ArrayList<>();
     project.android.productFlavors.each { flavor ->
@@ -298,7 +345,3 @@ if (buildWithTinker()) {
             }
         }
     }
-
-
-}
-

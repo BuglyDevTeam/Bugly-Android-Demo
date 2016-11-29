@@ -14,7 +14,7 @@ buildscript {
         classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.7.5')
 
         // tinkersupport插件
-        classpath "com.tencent.bugly:tinker-support:1.0.0"
+        classpath "com.tencent.bugly:tinker-support:latest.release"
 
     }
 }
