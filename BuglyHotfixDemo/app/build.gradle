@@ -190,7 +190,7 @@ if (buildWithTinker()) {
         // dex相关配置项
         dex {
             dexMode = "jar" // 可选，默认为jar
-            usePreGeneratedPatchDex = true // 可选，默认为false
+            usePreGeneratedPatchDex = false // 可选，默认为false
             pattern = ["classes*.dex",
                        "assets/secondary-dex-?.jar"]
             // 必选
