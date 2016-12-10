@@ -201,12 +201,12 @@ if (buildWithTinker()) {
 
         // lib相关的配置项
         lib {
-            pattern = ["lib/armeabi.so"]
+            pattern = ["lib/armeabi/*.so"]
         }
 
         // res相关的配置项
         res {
-            pattern = ["res", "assets", "resources.arsc", "AndroidManifest.xml"]
+            pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
             ignoreChange = ["assets/sample_meta.txt"]
             largeModSize = 100
         }
