@@ -1,4 +1,4 @@
-package com.tencent.bugly.hotfix;
+package com.tencent.bugly.hotfix.easy;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

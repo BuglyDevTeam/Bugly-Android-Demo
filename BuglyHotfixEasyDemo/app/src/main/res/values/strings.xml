@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BuglyHotfixEasyDemo</string>
+    <string name="showToast">显示结果</string>
+    <string name="loadPatch">加载补丁</string>
+    <string name="loadLibrary">加载so库</string>
+</resources>

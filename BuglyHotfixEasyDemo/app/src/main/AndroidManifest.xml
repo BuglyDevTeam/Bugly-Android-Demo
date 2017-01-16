@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.tencent.bugly.hotfix"
-          >
+          package="com.tencent.bugly.hotfix.easy">
 
     <!--Bugly升级SDK权限配置开始-->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -15,12 +14,11 @@
     <!--Bugly升级SDK权限配置结束-->
 
     <application
-            android:name="com.tencent.bugly.hotfix.SampleApplication"
+            android:name=".MyApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:supportsRtl="true"
-            android:debuggable="true"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -36,7 +34,6 @@
                 android:theme="@android:style/Theme.Translucent"/>
 
 
-        <!--API 24以上配置-->
         <provider
                 android:name="android.support.v4.content.FileProvider"
                 android:authorities="com.tencent.bugly.hotfix.fileProvider"
