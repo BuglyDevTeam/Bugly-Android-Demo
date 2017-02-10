@@ -27,18 +27,15 @@ public class SampleApplicationLike extends DefaultApplicationLike {
 
     public SampleApplicationLike(Application application, int tinkerFlags,
             boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime,
-            long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources,
-            ClassLoader[] classLoader, AssetManager[] assetManager) {
+            long applicationStartMillisTime, Intent tinkerResultIntent) {
         super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime,
-                applicationStartMillisTime, tinkerResultIntent, resources, classLoader,
-                assetManager);
+                applicationStartMillisTime, tinkerResultIntent);
     }
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-        // TODO: 这里进行Bugly初始化
         // 设置开发设备
         Bugly.setIsDevelopmentDevice(getApplication(), true);
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId

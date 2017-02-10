@@ -7,7 +7,7 @@ dependencies {
     // 多dex配置
     compile "com.android.support:multidex:1.0.1"
     // 集成Bugly热更新aar（本地集成使用方式）
-    // compile(name: 'bugly_crashreport_upgrade-1.2.2', ext: 'aar')
+//     compile(name: 'bugly_crashreport_upgrade-1.2.3', ext: 'aar')
     // 远程仓库集成方式
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
 }
@@ -102,103 +102,3 @@ android {
 
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
-
-def bakPath = file("${buildDir}/bakApk/")
-
-// 以下用于打多渠道补丁包
-ext {
-    // only use for build all flavor, if not, just ignore this field
-    // tinkerBuildFlavorDirectory = "${bakPath}/app-0116-14-41-59"
-
-    // tinkerId = "123456789-patch"
-}
-
-def getTinkerBuildFlavorDirectory() {
-    return ext.tinkerBuildFlavorDirectory
-}
-
-
-
-List<String> flavors = new ArrayList<>();
-project.android.productFlavors.each { flavor ->
-    flavors.add(flavor.name)
-}
-boolean hasFlavors = flavors.size() > 0
-/**
- * bak apk and mapping
- */
-android.applicationVariants.all { variant ->
-    /**
-     * task type, you want to bak
-     */
-    def taskName = variant.name
-
-    tasks.all {
-        if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
-
-            if (hasFlavors) {
-                println(taskName)
-                for (String flavor : flavors) {
-                    if (taskName.contains("Release")) {
-                        def preAssembleTask = tasks.getByName("process${flavor.capitalize()}ReleaseManifest")
-                        preAssembleTask.doFirst {
-                            if (taskName.contains(flavor)) {
-                                String flavorName = preAssembleTask.name.substring(7, 8).toLowerCase() + preAssembleTask.name.substring(8, preAssembleTask.name.length() - 15)
-                                String tinkerId = flavorName + "_"+ project.ext.tinkerId
-                                project.tinkerPatch.buildConfig.tinkerId = tinkerId
-                            }
-                        }
-                    }
-
-                    if (taskName.contains("Debug")) {
-                        def preAssembleTask = tasks.getByName("process${flavor.capitalize()}DebugManifest")
-                        preAssembleTask.doFirst {
-                            if (taskName.contains(flavor)) {
-                                String flavorName = preAssembleTask.name.substring(7, 8).toLowerCase() + preAssembleTask.name.substring(8, preAssembleTask.name.length() - 15)
-                                String tinkerId = flavorName + "_"+ project.ext.tinkerId
-                                project.tinkerPatch.buildConfig.tinkerId = tinkerId
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-project.afterEvaluate {
-    //sample use for build all flavor for one time
-    if (hasFlavors) {
-        task(tinkerPatchAllFlavorRelease) {
-            group = 'tinker'
-            def originOldPath = getTinkerBuildFlavorDirectory()
-            for (String flavor : flavors) {
-                def tinkerTask = tasks.getByName("tinkerPatch${flavor.capitalize()}Release")
-                dependsOn tinkerTask
-                def preAssembleTask = tasks.getByName("process${flavor.capitalize()}ReleaseManifest")
-                preAssembleTask.doFirst {
-                    String flavorName = preAssembleTask.name.substring(7, 8).toLowerCase() + preAssembleTask.name.substring(8, preAssembleTask.name.length() - 15)
-                    project.tinkerPatch.oldApk = "${originOldPath}/${project.name}-${flavorName}-release.apk"
-                    project.tinkerPatch.buildConfig.applyMapping = "${originOldPath}/${project.name}-${flavorName}-release-mapping.txt"
-                    project.tinkerPatch.buildConfig.applyResourceMapping = "${originOldPath}/${project.name}-${flavorName}-release-R.txt"
-                }
-
-            }
-        }
-
-        task(tinkerPatchAllFlavorDebug) {
-            group = 'tinker'
-            def originOldPath = getTinkerBuildFlavorDirectory()
-            for (String flavor : flavors) {
-                def tinkerTask = tasks.getByName("tinkerPatch${flavor.capitalize()}Debug")
-                dependsOn tinkerTask
-                def preAssembleTask = tasks.getByName("process${flavor.capitalize()}DebugManifest")
-                preAssembleTask.doFirst {
-                    String flavorName = preAssembleTask.name.substring(7, 8).toLowerCase() + preAssembleTask.name.substring(8, preAssembleTask.name.length() - 13)
-                    project.tinkerPatch.oldApk = "${originOldPath}/${project.name}-${flavorName}-debug.apk"
-                    project.tinkerPatch.buildConfig.applyMapping = "${originOldPath}/${project.name}-${flavorName}-debug-mapping.txt"
-                    project.tinkerPatch.buildConfig.applyResourceMapping = "${originOldPath}/${project.name}-${flavorName}-debug-R.txt"
-                }
-            }
-        }
-    }
-}
