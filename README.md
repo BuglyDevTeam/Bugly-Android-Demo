@@ -5,7 +5,7 @@ Bugly Android SDK 使用例子
 
 [BuglyUpgradeDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyUpgradeDemo)
 
-[BuglyHotfixDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyUpgradeDemo)
+[BuglyHotfixDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixDemo)
 
 [BuglyHotfixEasyDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixEasyDemo)
 
