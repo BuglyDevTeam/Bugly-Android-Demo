@@ -80,7 +80,7 @@ dependencies {
 //    compile(name: 'bugly_crashreport_upgrade-1.2.3', ext: 'aar')
 
     // 远程依赖集成方式（推荐）
-    compile "com.tencent.bugly:crashreport_upgrade:1.2.3"
+    compile "com.tencent.bugly:crashreport_upgrade:1.2.4"
 }
 
 // 依赖插件脚本
