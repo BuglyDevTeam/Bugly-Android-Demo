@@ -39,6 +39,18 @@
             android:text="@string/loadLibrary"
     />
     <Button
+            android:id="@+id/btnDownloadPatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userDownload"
+    />
+    <Button
+            android:id="@+id/btnPatchDownloaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userPatch"
+    />
+    <Button
             android:id="@+id/btnKillSelf"
             android:text="退出程序"
             android:layout_width="wrap_content"
