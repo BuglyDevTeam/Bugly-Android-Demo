@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnLoadPatch;
     private Button btnKillSelf;
     private Button btnLoadLibrary;
+    private Button btnDownloadPatch;
+    private Button btnUserPatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLoadPatch.setOnClickListener(this);
         btnLoadLibrary = (Button) findViewById(R.id.btnLoadLibrary);
         btnLoadLibrary.setOnClickListener(this);
+        btnDownloadPatch = (Button) findViewById(R.id.btnDownloadPatch);
+        btnDownloadPatch.setOnClickListener(this);
+        btnUserPatch = (Button) findViewById(R.id.btnPatchDownloaded);
+        btnUserPatch.setOnClickListener(this);
 
         tvCurrentVersion.setText("当前版本：" + getCurrentVersion(this));
     }
@@ -73,7 +79,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnLoadLibrary: // 本地加载so库测试
                 TestJNI testJNI = new TestJNI();
                 testJNI.createANativeCrash();
-//                Beta.loadLibrary("mylib");
+                break;
+            case R.id.btnDownloadPatch:
+                Beta.downloadPatch();
+                break;
+            case R.id.btnPatchDownloaded:
+                Beta.applyDownloadedPatch();
                 break;
         }
     }

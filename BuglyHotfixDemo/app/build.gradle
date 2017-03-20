@@ -7,9 +7,9 @@ dependencies {
     // 多dex配置
     compile "com.android.support:multidex:1.0.1"
     // 集成Bugly热更新aar（本地集成使用方式）
-//     compile(name: 'bugly_crashreport_upgrade-1.2.3', ext: 'aar')
+//     compile(name: 'bugly_crashreport_upgrade-1.2.4.0', ext: 'aar')
     // 远程仓库集成方式
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:crashreport_upgrade:1.2.4.0'
 }
 
 android {
