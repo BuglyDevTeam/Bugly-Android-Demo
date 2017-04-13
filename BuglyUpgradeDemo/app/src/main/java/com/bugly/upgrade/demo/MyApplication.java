@@ -8,11 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.UpgradeInfo;
 import com.tencent.bugly.beta.ui.UILifecycleListener;
+import com.tencent.bugly.beta.upgrade.UpgradeListener;
 
 
 /**
@@ -74,7 +76,7 @@ public class MyApplication extends Application {
         /**
          * 点击过确认的弹窗在APP下次启动自动检查更新时会再次显示;
          */
-        Beta.showInterruptedStrategy = true;
+        Beta.showInterruptedStrategy = false;
 
         /**
          * 只允许在MainActivity上显示更新弹窗，其他activity上不显示弹窗;
@@ -93,7 +95,7 @@ public class MyApplication extends Application {
          *  确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
          *  详见layout/upgrade_dialog.xml
          */
-//        Beta.upgradeDialogLayoutId = R.layout.upgrade_dialog;
+        Beta.upgradeDialogLayoutId = R.layout.upgrade_dialog;
 
         /**
          * 设置自定义tip弹窗UI布局
@@ -161,6 +163,24 @@ public class MyApplication extends Application {
             @Override
             public void onDestroy(Context context, View view, UpgradeInfo upgradeInfo) {
                 Log.d(TAG, "onDestory");
+            }
+        };*/
+
+        /**
+         * 自定义Activity参考，通过回调接口来跳转到你自定义的Actiivty中。
+         */
+       /* Beta.upgradeListener = new UpgradeListener() {
+
+            @Override
+            public void onUpgrade(int ret, UpgradeInfo strategy, boolean isManual, boolean isSilence) {
+                if (strategy != null) {
+                    Intent i = new Intent();
+                    i.setClass(getApplicationContext(), UpgradeActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(), "没有更新", Toast.LENGTH_SHORT).show();
+                }
             }
         };*/
 

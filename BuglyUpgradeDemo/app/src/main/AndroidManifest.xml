@@ -26,15 +26,28 @@
             </intent-filter>
         </activity>
 
-        <!--测试Activity-->
-        <activity android:name=".OtherActivity"/>
-
-
-
         <!--必须配置-->
         <activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:theme="@android:style/Theme.Translucent" />
+                android:name="com.tencent.bugly.beta.ui.BetaActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|locale"
+                android:theme="@android:style/Theme.Translucent"/>
+
+        <!-- 必须配置 fileProvider， 注意： android:authorities="${applicationId}.fileProvider" 不要直接copy，设置为你的包名.fileProvider-->
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.bugly.upgrade.demo.fileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"/>
+
+        </provider>
+
+        <!--测试Activity-->
+        <activity android:name=".OtherActivity"/>
+        <activity android:name=".UpgradeActivity"/>
+
     </application>
 
 </manifest>
