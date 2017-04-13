@@ -4,8 +4,6 @@ import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.widget.Toast;
@@ -40,10 +38,12 @@ public class SampleApplicationLike extends DefaultApplicationLike {
     @Override
     public void onCreate() {
         super.onCreate();
+        // 设置是否开启热更新能力，默认为true
+        Beta.enableHotfix = true;
         // 设置是否自动下载补丁，默认为true
-        Beta.canAutoDownloadPatch = true;
+        Beta.canAutoDownloadPatch = false;
         // 设置是否自动合成补丁，默认为true
-        Beta.canAutoPatch = true;
+        Beta.canAutoPatch = false;
         // 设置是否提示用户重启，默认为false
         Beta.canNotifyUserRestart = true;
         // 补丁回调接口
