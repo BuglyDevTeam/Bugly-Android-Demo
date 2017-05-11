@@ -5,7 +5,7 @@ def bakPath = file("${buildDir}/bakApk/")
 /**
  * 此处填写每次构建生成的基准包目录
  */
-def baseApkDir = "app-0208-15-10-00"
+def baseApkDir = "app-0504-15-25-47"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -17,6 +17,8 @@ tinkerSupport {
 
     // 指定归档目录，默认值当前module的子目录tinker
     autoBackupApkDir = "${bakPath}"
+
+    autoGenerateTinkerId = true
 
     // 是否启用覆盖tinkerPatch配置功能，默认值false
     // 开启后tinkerPatch配置不生效，即无需添加tinkerPatch
@@ -36,6 +38,8 @@ tinkerSupport {
     tinkerId = "1.0.1-base"
 
 //    buildAllFlavorsDir = "${bakPath}/${baseApkDir}"
+    // 是否开启加固模式，默认为false
+    // isProtectedApp = true
 
     enableProxyApplication = false
 

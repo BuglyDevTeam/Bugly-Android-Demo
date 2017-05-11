@@ -28,19 +28,19 @@ public class MyApplication extends Application {
         super.onCreate();
 
         setStrictMode();
-        // 设置是否关闭热更新能力，默认为true
+        // 设置是否开启热更新能力，默认为true
         Beta.enableHotfix = true;
         // 设置是否自动下载补丁
-        Beta.canAutoDownloadPatch = false;
+        Beta.canAutoDownloadPatch = true;
         // 设置是否提示用户重启
-        Beta.canNotifyUserRestart = false;
+        Beta.canNotifyUserRestart = true;
         // 设置是否自动合成补丁
-        Beta.canAutoPatch = false;
+        Beta.canAutoPatch = true;
 
         /**
          *  全量升级状态回调
          */
-        /*Beta.upgradeStateListener = new UpgradeStateListener() {
+        Beta.upgradeStateListener = new UpgradeStateListener() {
             @Override
             public void onUpgradeFailed(boolean b) {
 
@@ -65,7 +65,7 @@ public class MyApplication extends Application {
             public void onDownloadCompleted(boolean b) {
 
             }
-        };*/
+        };
 
         /**
          * 补丁回调接口，可以监听补丁接收、下载、合成的回调
@@ -87,7 +87,7 @@ public class MyApplication extends Application {
             @Override
             public void onDownloadSuccess(String patchFilePath) {
                 Toast.makeText(getApplicationContext(), patchFilePath, Toast.LENGTH_SHORT).show();
-                Beta.applyDownloadedPatch();
+//                Beta.applyDownloadedPatch();
             }
 
             @Override
@@ -104,11 +104,16 @@ public class MyApplication extends Application {
             public void onApplyFailure(String msg) {
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onPatchRollback() {
+                Toast.makeText(getApplicationContext(), "onPatchRollback", Toast.LENGTH_SHORT).show();
+            }
         };
 
         long start = System.currentTimeMillis();
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId,调试时将第三个参数设置为true
-        Bugly.init(this, "900029763", false);
+        Bugly.init(this, "900029763", true);
         long end = System.currentTimeMillis();
         Log.e("init time--->", end - start + "ms");
 }

@@ -5,4 +5,5 @@
     <string name="loadLibrary">测试so更新</string>
     <string name="userDownload">手动下载补丁包</string>
     <string name="userPatch">手动合成补丁</string>
+    <string name="checkUpgrade">检查更新</string>
 </resources>

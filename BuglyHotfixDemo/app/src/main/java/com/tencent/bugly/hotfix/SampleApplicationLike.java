@@ -41,9 +41,9 @@ public class SampleApplicationLike extends DefaultApplicationLike {
         // 设置是否开启热更新能力，默认为true
         Beta.enableHotfix = true;
         // 设置是否自动下载补丁，默认为true
-        Beta.canAutoDownloadPatch = false;
+        Beta.canAutoDownloadPatch = true;
         // 设置是否自动合成补丁，默认为true
-        Beta.canAutoPatch = false;
+        Beta.canAutoPatch = true;
         // 设置是否提示用户重启，默认为false
         Beta.canNotifyUserRestart = true;
         // 补丁回调接口
@@ -81,6 +81,11 @@ public class SampleApplicationLike extends DefaultApplicationLike {
             @Override
             public void onApplyFailure(String msg) {
                 Toast.makeText(getApplication(), "补丁应用失败", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPatchRollback() {
+
             }
         };
 

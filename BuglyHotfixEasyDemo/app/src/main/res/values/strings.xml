@@ -4,5 +4,6 @@
     <string name="loadPatch">加载补丁</string>
     <string name="loadLibrary">加载so库</string>
     <string name="userDownload">手动下载补丁包</string>
+    <string name="checkUpgrade">检查更新</string>
     <string name="userPatch">手动合成补丁</string>
 </resources>

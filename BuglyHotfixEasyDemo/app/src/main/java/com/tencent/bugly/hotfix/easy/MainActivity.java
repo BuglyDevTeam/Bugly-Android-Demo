@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnLoadLibrary;
     private Button btnDownloadPatch;
     private Button btnUserPatch;
+    private Button btnCheckUpgrade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDownloadPatch.setOnClickListener(this);
         btnUserPatch = (Button) findViewById(R.id.btnPatchDownloaded);
         btnUserPatch.setOnClickListener(this);
+        btnCheckUpgrade = (Button) findViewById(R.id.btnCheckUpgrade);
+        btnCheckUpgrade.setOnClickListener(this);
 
         tvCurrentVersion.setText("当前版本：" + getCurrentVersion(this));
     }
@@ -85,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnPatchDownloaded:
                 Beta.applyDownloadedPatch();
+                break;
+            case R.id.btnCheckUpgrade:
+                Beta.checkUpgrade();
                 break;
         }
     }
