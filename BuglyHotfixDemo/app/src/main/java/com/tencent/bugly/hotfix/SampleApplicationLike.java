@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.widget.Toast;
 
+import com.meituan.android.walle.WalleChannelReader;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.interfaces.BetaPatchListener;
@@ -91,6 +92,9 @@ public class SampleApplicationLike extends DefaultApplicationLike {
 
         // 设置开发设备，默认为false，上传补丁如果下发范围指定为“开发设备”，需要调用此接口来标识开发设备
         Bugly.setIsDevelopmentDevice(getApplication(), true);
+        // 多渠道需求塞入
+        // String channel = WalleChannelReader.getChannel(getApplication());
+        // Bugly.setAppChannel(getApplication(), channel);
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
         Bugly.init(getApplication(), "900029763", true);
     }

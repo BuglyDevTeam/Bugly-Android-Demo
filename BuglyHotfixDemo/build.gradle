@@ -13,6 +13,10 @@ buildscript {
         // tinkersupport插件(1.0.3以上无须再配置tinker插件）
         classpath "com.tencent.bugly:tinker-support:1.0.7"
 
+
+        // 多渠道插件（多渠道打包推荐使用）
+        classpath 'com.meituan.android.walle:plugin:1.1.3'
+
     }
 }
 
