@@ -3,19 +3,19 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
         // tinkersupport插件(1.0.3以上无须再配置tinker插件）
-        classpath "com.tencent.bugly:tinker-support:1.0.8"
-
+        classpath "com.tencent.bugly:tinker-support:1.0.9"
 
         // 多渠道插件（多渠道打包推荐使用）
-        classpath 'com.meituan.android.walle:plugin:1.1.3'
+        //classpath 'com.meituan.android.walle:plugin:1.1.3'
 
     }
 }
@@ -23,6 +23,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 

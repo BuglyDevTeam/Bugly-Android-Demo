@@ -5,7 +5,7 @@ def bakPath = file("${buildDir}/bakApk/")
 /**
  * 此处填写每次构建生成的基准包目录
  */
-def baseApkDir = "app-0504-15-25-47"
+def baseApkDir = "app-1108-11-35-14"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -42,6 +42,8 @@ tinkerSupport {
     // isProtectedApp = true
 
     enableProxyApplication = false
+
+    supportHotplugComponent = true
 
 }
 

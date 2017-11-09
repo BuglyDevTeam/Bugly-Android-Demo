@@ -95,7 +95,7 @@ public class MyApplication extends Application {
          *  确定按钮：beta_confirm_button 如：android:tag="beta_confirm_button"
          *  详见layout/upgrade_dialog.xml
          */
-        Beta.upgradeDialogLayoutId = R.layout.upgrade_dialog;
+//        Beta.upgradeDialogLayoutId = R.layout.upgrade_dialog;
 
         /**
          * 设置自定义tip弹窗UI布局

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -117,5 +118,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return "";
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e("MainActivity", "onBackPressed");
+
+        Beta.unInit();
     }
 }
