@@ -58,17 +58,20 @@ android {
         }
     }
 
-   /* productFlavors {
-        bugly {
+    // productFlavors 示例
+    /*flavorDimensions "tier"
 
-        }
 
+    productFlavors {
         xiaomi {
-
+            dimension "tier"
+        }
+        yyb {
+            dimension "tier"
         }
 
-        yyb {
-
+        wdj {
+            dimension "tier"
         }
     }*/
 }
