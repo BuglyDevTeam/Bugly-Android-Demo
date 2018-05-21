@@ -112,6 +112,12 @@ public class MyApplication extends Application {
         };
 
         long start = System.currentTimeMillis();
+        Bugly.setUserId(this, "falue");
+        Bugly.setUserTag(this, 123456);
+        Bugly.putUserData(this, "key1", "123");
+        Bugly.setAppChannel(this, "bugly");
+
+
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId,调试时将第三个参数设置为true
         Bugly.init(this, "900029763", true);
         long end = System.currentTimeMillis();
