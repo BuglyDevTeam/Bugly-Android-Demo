@@ -11,4 +11,4 @@ Bugly Android SDK 使用例子
 
 [SDK使用指南](https://bugly.qq.com/docs/)
 
-[WIKI常见接入问题](https://github.com/BuglyDevTeam/Bugly-Android-Demo/wiki)
+[SDK接入常见问题](https://github.com/BuglyDevTeam/Bugly-Android-Demo/wiki)
