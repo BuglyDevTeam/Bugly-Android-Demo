@@ -5,9 +5,9 @@ Bugly Android SDK 使用例子
 
 应用升级 [BuglyUpgradeDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyUpgradeDemo)
 
-热更新使用示例 [BuglyHotfixDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixDemo)
+热更新使用示例，推荐的接入方式： [BuglyHotfixDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixDemo)
 
-热更新一键接入示例 [BuglyHotfixEasyDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixEasyDemo)
+热更新一键接入示例，后续将不再更新 [BuglyHotfixEasyDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixEasyDemo)
 
 [SDK使用指南](https://bugly.qq.com/docs/)
 
