@@ -1,10 +1,6 @@
 apply plugin: 'com.android.application'
 // 注：需要配置符号表时，使用bugly插件
 apply plugin: 'bugly'
-bugly {
-    appId = '900029763'
-    appKey = '9gXN6JiEyCUD3jbF'
-}
 
 /*
 除了appId和appKey之外，还可以设置其他属性，属性列表如下：
@@ -17,19 +13,18 @@ outputDir	String	符号表文件输出路径
  */
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.tencent.bugly.demo"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
         ndk {
             //设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -42,12 +37,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     // 其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.7
     // (注：从2.1.5开始要分开Bugly SDK和NDK的配置）
-    compile 'com.tencent.bugly:crashreport:latest.release'
-    //compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
 
 }
