@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.UpgradeInfo;
+import com.tencent.bugly.crashreport.CrashReport;
 
 
 /**
@@ -81,5 +82,17 @@ public class MainActivity extends AppCompatActivity {
         info.append("弹窗类型（1:建议 2:强制 3:手工）: ").append(upgradeInfo.upgradeType);
 
         tvUpgradeInfo.setText(info);
+    }
+
+    public void testJavaCrash(View view){
+        CrashReport.testJavaCrash();
+    }
+
+    public void testNativeCrash(View view){
+        CrashReport.testNativeCrash();
+    }
+
+    public void testANR(View view){
+        CrashReport.testANRCrash();
     }
 }

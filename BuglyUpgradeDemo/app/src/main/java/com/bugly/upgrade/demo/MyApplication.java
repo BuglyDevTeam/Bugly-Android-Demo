@@ -22,7 +22,7 @@ import com.tencent.bugly.beta.upgrade.UpgradeListener;
  */
 public class MyApplication extends Application {
 
-    public static final String APP_ID = "900029763"; // TODO 替换成bugly上注册的appid
+    public static final String APP_ID = "fb9689e799"; // TODO 替换成bugly上注册的appid
     public static final String APP_CHANNEL = "DEBUG"; // TODO 自定义渠道
     private static final String TAG = "OnUILifecycleListener";
 

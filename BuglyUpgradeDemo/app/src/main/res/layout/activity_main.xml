@@ -27,4 +27,24 @@
         android:layout_height="wrap_content"
         android:text="无更新信息"/>
 
+    <Button
+        android:id="@+id/javacrash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试java异常"
+        android:onClick="testJavaCrash"/>
+    <Button
+        android:id="@+id/nativecrash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试native异常"
+        android:onClick="testNativeCrash"/>
+
+    <Button
+        android:id="@+id/anr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ANR"
+        android:onClick="testANR"/>
+
 </LinearLayout>
