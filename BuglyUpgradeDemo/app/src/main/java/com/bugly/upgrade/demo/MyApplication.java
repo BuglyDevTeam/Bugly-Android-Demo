@@ -13,15 +13,17 @@ import android.widget.Toast;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.UpgradeInfo;
+import com.tencent.bugly.beta.download.DownloadListener;
+import com.tencent.bugly.beta.download.DownloadTask;
 import com.tencent.bugly.beta.ui.UILifecycleListener;
 import com.tencent.bugly.beta.upgrade.UpgradeListener;
+import com.tencent.bugly.beta.upgrade.UpgradeStateListener;
 
 
 /**
  * Created by wenjiewu on 2016/5/23.
  */
 public class MyApplication extends Application {
-
     public static final String APP_ID = "fb9689e799"; // TODO 替换成bugly上注册的appid
     public static final String APP_CHANNEL = "DEBUG"; // TODO 自定义渠道
     private static final String TAG = "OnUILifecycleListener";
@@ -184,6 +186,51 @@ public class MyApplication extends Application {
             }
         };*/
 
+        //监听安装包下载状态
+        Beta.downloadListener = new DownloadListener() {
+            @Override
+            public void onReceive(DownloadTask downloadTask) {
+                Log.d(TAG,"downloadListener receive apk file");
+            }
+
+            @Override
+            public void onCompleted(DownloadTask downloadTask) {
+                Log.d(TAG,"downloadListener download apk file success");
+            }
+
+            @Override
+            public void onFailed(DownloadTask downloadTask, int i, String s) {
+                Log.d(TAG,"downloadListener download apk file fail");
+            }
+        };
+
+        //监听APP升级状态
+        Beta.upgradeStateListener = new UpgradeStateListener(){
+            @Override
+            public void onUpgradeFailed(boolean b) {
+                Log.d(TAG,"upgradeStateListener upgrade fail");
+            }
+
+            @Override
+            public void onUpgradeSuccess(boolean b) {
+                Log.d(TAG,"upgradeStateListener upgrade success");
+            }
+
+            @Override
+            public void onUpgradeNoVersion(boolean b) {
+                Log.d(TAG,"upgradeStateListener upgrade has no new version");
+            }
+
+            @Override
+            public void onUpgrading(boolean b) {
+                Log.d(TAG,"upgradeStateListener upgrading");
+            }
+
+            @Override
+            public void onDownloadCompleted(boolean b) {
+                Log.d(TAG,"upgradeStateListener download apk file success");
+            }
+        };
 
         /**
          * 已经接入Bugly用户改用上面的初始化方法,不影响原有的crash上报功能;
