@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:28.0.0'
 
     // 多dex配置
     compile "com.android.support:multidex:1.0.1"
@@ -13,14 +13,14 @@ dependencies {
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
     //1. 指定tinker依赖版本（注：应用升级1.3.5版本起，不再内置tinker）
     //2.为了便于解答问题，这里的tinker版本建议跟随此处demo设置，如果微信更新了tinker版本，bugly会定期同步更新
-    compile 'com.tencent.tinker:tinker-android-lib:1.9.9'
+    compile 'com.tencent.tinker:tinker-android-lib:1.9.13'
 
     // walle（多渠道使用）
     // compile 'com.meituan.android.walle:library:1.1.3'
 }
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 28
     buildToolsVersion '26.0.2'
 
     // 编译选项
@@ -56,7 +56,7 @@ android {
     defaultConfig {
         applicationId "com.tencent.bugly.hotfix"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 3
         versionName "2.0"
 
