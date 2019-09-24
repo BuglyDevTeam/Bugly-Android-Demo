@@ -6,8 +6,8 @@ android {
         applicationId "com.bugly.upgrade.demo"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 11
-        versionName "1.1"
+        versionCode 14
+        versionName "1.4"
         ndk {
             //设置支持的SO库架构
             abiFilters 'armeabi' , 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
@@ -33,7 +33,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     // 推荐集成方式， 其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:crashreport_upgrade:1.4.2'
+    //compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     // 本地集成aar方式
     // compile(name: 'bugly_crashreport_upgrade-1.3.5', ext: 'aar')
