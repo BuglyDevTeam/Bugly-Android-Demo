@@ -17,6 +17,6 @@ public class MyApplication extends Application {
         * 参数2：APPID，平台注册时得到,注意替换成你的appId
         * 参数3：是否开启调试模式，调试模式下会输出'CrashReport'tag的日志
         */
-        CrashReport.initCrashReport(getApplicationContext(), "d562178d23", true);
+        CrashReport.initCrashReport(getApplicationContext(), "32217104d3", true);
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.tencent.bugly</groupId>
+  <artifactId>tinker-support</artifactId>
+  <versioning>
+    <release>1.1.6</release>
+    <versions>
+      <version>1.1.2</version>
+      <version>1.1.5</version>
+      <version>1.1.1</version>
+      <version>1.0.9</version>
+      <version>1.1.6</version>
+    </versions>
+    <lastUpdated>20190810075313</lastUpdated>
+  </versioning>
+</metadata>
