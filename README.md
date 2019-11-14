@@ -12,6 +12,8 @@
 
 热更新一键接入示例，后续将不再更新 [BuglyHotfixEasyDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglyHotfixEasyDemo)
 
+[热更新常见问题请参考](https://github.com/BuglyDevTeam/Bugly-Android-Demo/wiki#%E7%83%AD%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB)
+
 [SDK使用指南](https://bugly.qq.com/docs/)
 
 [SDK接入常见问题](https://github.com/BuglyDevTeam/Bugly-Android-Demo/wiki)
