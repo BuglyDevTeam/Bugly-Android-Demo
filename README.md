@@ -1,3 +1,6 @@
+# Google Play的政策变更通知
+由于Google Play政策限制，请不要使用bugly带升级功能的sdk，否则可能被GooglePlay检测到违规而导致警告、下架甚至封禁账号等后果。
+
 # Bugly-Android-Demo
 
 1.crash、ANR、error（捕获的异常）堆栈上报 [BuglySDKDemo](https://github.com/BuglyDevTeam/Bugly-Android-Demo/tree/master/BuglySDKDemo)
