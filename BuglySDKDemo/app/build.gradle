@@ -29,13 +29,13 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file("keystore/tempkeystore.jks")
+            storeFile file("../tempkeystore.jks")
             storePassword "20190107"
             keyAlias "key0"
             keyPassword "20190107"
         }
         release {
-            storeFile file("keystore/tempkeystore.jks")
+            storeFile file("../tempkeystore.jks")
             storePassword "20190107"
             keyAlias "key0"
             keyPassword "20190107"
