@@ -27,12 +27,36 @@ android {
             abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
+    signingConfigs {
+        debug {
+            storeFile file("keystore/tempkeystore.jks")
+            storePassword "20190107"
+            keyAlias "key0"
+            keyPassword "20190107"
+        }
+        release {
+            storeFile file("keystore/tempkeystore.jks")
+            storePassword "20190107"
+            keyAlias "key0"
+            keyPassword "20190107"
+        }
+    }
     buildTypes {
         release {
             // 开启混淆
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            // 开启混淆
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+
     }
     sourceSets {
         main {
