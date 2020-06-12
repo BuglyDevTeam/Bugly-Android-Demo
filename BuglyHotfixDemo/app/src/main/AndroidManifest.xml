@@ -40,7 +40,7 @@
 
         <!--API 24以上配置-->
         <provider
-                android:name="android.support.v4.content.FileProvider"
+                android:name="androidx.core.content.FileProvider"
                 android:authorities="com.tencent.bugly.hotfix.fileProvider"
                 android:exported="false"
                 android:grantUriPermissions="true">

@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 import android.widget.Toast;
 
 //import com.meituan.android.walle.WalleChannelReader;
@@ -14,7 +14,6 @@ import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.interfaces.BetaPatchListener;
 import com.tencent.tinker.entry.DefaultApplicationLike;
 
-import com.tencent.tinker.entry.DefaultApplicationLike;
 import java.util.Locale;
 
 /**
