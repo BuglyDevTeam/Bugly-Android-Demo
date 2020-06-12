@@ -31,10 +31,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     // 推荐集成方式， 其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
-    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.3'
     // 本地集成aar方式
     // compile(name: 'bugly_crashreport_upgrade-1.3.5', ext: 'aar')
 }

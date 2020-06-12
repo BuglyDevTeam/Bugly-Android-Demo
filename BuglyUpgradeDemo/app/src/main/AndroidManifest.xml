@@ -33,7 +33,7 @@
 
         <!-- 必须配置 fileProvider， 注意： android:authorities="${applicationId}.fileProvider" 不要直接copy，设置为你的包名.fileProvider-->
         <provider
-                android:name="android.support.v4.content.FileProvider"
+                android:name="androidx.core.content.FileProvider"
                 android:authorities="com.bugly.upgrade.demo.fileProvider"
                 android:exported="false"
                 android:grantUriPermissions="true">
