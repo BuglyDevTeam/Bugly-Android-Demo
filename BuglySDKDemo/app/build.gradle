@@ -71,6 +71,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     // 其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.7
     // (注：从2.1.5开始要分开Bugly SDK和NDK的配置）
-    implementation 'com.tencent.bugly:crashreport:3.2.3'
-    implementation 'com.tencent.bugly:nativecrashreport:3.7.3'
+    implementation 'com.tencent.bugly:crashreport:3.3.3'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.7'
 }
