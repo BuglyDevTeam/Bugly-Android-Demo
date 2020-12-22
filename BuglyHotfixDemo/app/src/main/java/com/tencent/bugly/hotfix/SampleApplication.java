@@ -20,6 +20,6 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
 public class SampleApplication extends TinkerApplication {
     public SampleApplication() {
         super(ShareConstants.TINKER_ENABLE_ALL, "com.tencent.bugly.hotfix.SampleApplicationLike",
-                "com.tencent.tinker.loader.TinkerLoader", false);
+                "com.tencent.tinker.loader.TinkerLoader", false, true);
     }
 }
