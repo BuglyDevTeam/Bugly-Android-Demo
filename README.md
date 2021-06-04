@@ -2,7 +2,7 @@
 由于Google Play政策限制，请不要使用bugly带升级功能的sdk，否则可能被GooglePlay检测到违规而导致警告、下架甚至封禁账号等后果。
 
 # 设备id隐私信息问题说明
-最新版本sdk已经删除了很多不必要的信息采集，请先将您使用的bugly sdk更新到官网发布的最新版本。Bugly sdk默认使用Android id用于判断Crash设备做统计。如果遇到有关隐私协议审核不允许采集Android id的场景，可以在初始化bugly sdk的时候自定义一个device id，这样本次初始化bugly sdk就不会再采集 Android id了。具体api参考https://bugly.qq.com/docs/user-guide/advance-features-android/?v=20200622202242#userstrategy
+最新版本sdk已经删除了很多不必要的信息采集，请先将您使用的bugly sdk更新到官网发布的最新版本。Bugly sdk默认使用Android id用于判断Crash设备做统计。如果遇到有关隐私协议审核不允许采集Android id的场景，可以在初始化bugly sdk的时候自定义一个device id，这样本次初始化bugly sdk就不会再采集 Android id了。
 ```java
     //初始化sdk之前调用设置自定义deviceid
     //CrashReport.java
