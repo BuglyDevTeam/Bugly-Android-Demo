@@ -4,8 +4,19 @@
 # 设备id隐私信息问题说明
 最新版本sdk已经删除了很多不必要的信息采集，请先将您使用的bugly sdk更新到官网发布的最新版本。Bugly sdk默认使用Android id用于判断Crash设备做统计。如果遇到有关隐私协议审核不允许采集Android id的场景，可以在初始化bugly sdk的时候自定义一个device id，这样本次初始化bugly sdk就不会再采集 Android id了。具体api参考https://bugly.qq.com/docs/user-guide/advance-features-android/?v=20200622202242#userstrategy
 ```java
-UserStrategy strategy = new UserStrategy(appContext);
-strategy.setDeviceID("userdefinedId")
+    //初始化sdk之前调用设置自定义deviceid
+    //CrashReport.java
+    /**
+     * 设置DeviceID,一旦设置就会取代SDK自己获取的唯一标识.
+     *
+     * @param context context
+     * @param deviceId 设备ID
+     */
+    public static void setDeviceId(Context context, String deviceId) {
+        if (deviceId != null) {
+            ComInfoManager.getCommonInfo(context).setDeviceId(deviceId);
+        }
+    }
 ```
 bugly 隐私协议文档下载地址 ：https://static.bugly.qq.com/bugly-sdk-privacy-statement.pdf
 
